@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:scrolling_image_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.HomeActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Food"
+                    android:fontFamily="@font/roboto_bold"
+                    android:textSize="@dimen/_20sdp"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/imgSearch"
+                    android:background="@drawable/bg_search"
+                    android:src="@drawable/vegetable_icon"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/eco_food"
+                app:layout_constraintBottom_toTopOf="@+id/linear_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.094"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                app:cardCornerRadius="20dp"
+                android:layout_margin="20dp"
+                app:layout_constraintStart_toStartOf="@id/linear_layout"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout"
+                android:layout_centerInParent="true">
+
+                <com.q42.android.scrollingimageview.ScrollingImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/siv"
+                    scrolling_image_view:source="@drawable/istockphoto"
+                    scrolling_image_view:speed="20dp"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title1"
+                android:text="Favorites"
+                android:drawablePadding="@dimen/_8sdp"
+                android:drawableStart="@drawable/ic_round_bookmark_24"
+                app:layout_constraintStart_toStartOf="@id/linear_layout"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imgTitle"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerExplore"
+                android:layout_width="wrap_content"
+                tools:listitem="@layout/explore_items"
+                android:layout_height="@dimen/_98sdp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title1" />
+
+            <TextView
+                android:drawableStart="@drawable/ic_round_bookmark_24"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawablePadding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_whatyou"
+                android:textColor="@color/black"
+                android:text="@string/find_today_s_ndelicious_food"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintTop_toBottomOf="@id/recyclerExplore"
+                app:layout_constraintStart_toStartOf="@id/linear_layout"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/random_meal_card"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_whatyou">
+
+                <ImageView
+                    android:id="@+id/img_random_meal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/green"
+                    android:scaleType="centerCrop"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:drawableStart="@drawable/ic_baseline_format_list_bulleted_24"
+                android:id="@+id/tv_over_popular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:drawablePadding="8dp"
+                android:text="Over popular items"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintTop_toBottomOf="@id/random_meal_card"
+                app:layout_constraintStart_toStartOf="@id/txt_whatyou"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewOver"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_90sdp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_over_popular" />
+
+            <TextView
+                android:drawableStart="@drawable/ic_category"
+                android:id="@+id/tv_categories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Categories"
+                android:drawablePadding="8dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintTop_toBottomOf="@id/recyclerViewOver"
+                app:layout_constraintStart_toStartOf="@id/txt_whatyou"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_categories">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:id="@+id/recyclerViewCategory"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
